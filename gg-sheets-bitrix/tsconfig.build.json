@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": [
+    "node_modules",
+    "test",
+    "scripts",
+    "dist",
+    "**/*spec.ts",
+    "src/testing",
+    "admin-ui",
+    "public"
+  ]
+}

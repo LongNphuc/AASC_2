@@ -1,0 +1,17 @@
+{
+  "columns": [
+    { "header": "Tên khách hàng", "field": "NAME", "rules": ["is_not_blank", "is_not_contain_digit"] },
+    { "header": "Email", "field": "EMAIL", "rules": ["is_email"] },
+    { "header": "Số điện thoại", "field": "PHONE", "rules": ["is_phone_vn"] },
+    { "header": "Công ty", "field": "COMPANY_TITLE" },
+    { "header": "Nguồn lead", "field": "SOURCE_ID", "value_map": { "website": "WEB", "event": "TRADE_SHOW", "partner": "PARTNER" } },
+    { "header": "Nguồn lead", "field": "UTM_SOURCE" },
+    { "header": "Ngân sách dự kiến", "field": "OPPORTUNITY", "rules": ["is_positive_number"] },
+    { "header": "Trạng thái", "field": "STATUS_ID", "owner": "bitrix" },
+    { "header": "Người phụ trách", "field": "ASSIGNED_BY_ID", "owner": "bitrix" },
+    { "header": "Ghi chú", "field": "COMMENTS" },
+    { "header": "Lĩnh vực quan tâm", "field": "UF_CRM_1792316305210" }
+  ],
+  "duplicate_keys": ["EMAIL", "PHONE"],
+  "lead_title": "{Tên khách hàng} - {Công ty}"
+}

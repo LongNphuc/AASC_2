@@ -1,0 +1,43 @@
+services:
+  db:
+    # PostgreSQL 18 trở lên: câu giành khóa dùng RETURNING old.* (readme_design.md mục 7.3)
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_USER: sync
+      POSTGRES_PASSWORD: sync
+      POSTGRES_DB: gg_sheets_bitrix
+    ports:
+      - '5432:5432'
+    volumes:
+      # Từ PostgreSQL 18, image lưu dữ liệu dưới /var/lib/postgresql/<phiên bản>.
+      - db-data:/var/lib/postgresql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U sync -d gg_sheets_bitrix']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  app:
+    build: .
+    image: gg-sheets-bitrix
+    env_file: .env
+    environment:
+      # Trong container luôn chạy cổng 3000; cổng ngoài lấy theo PORT trong .env.
+      PORT: 3000
+      DATABASE_URL: postgres://sync:sync@db:5432/gg_sheets_bitrix
+      LOG_DIR: /app/logs
+    ports:
+      - '${PORT:-3000}:3000'
+    volumes:
+      - ./secrets:/app/secrets:ro
+      - ./mapping.json:/app/mapping.json:ro
+      - app-logs:/app/logs
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  db-data:
+  app-logs:

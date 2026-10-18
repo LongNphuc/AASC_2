@@ -1,0 +1,14 @@
+node_modules
+admin-ui/node_modules
+public/admin
+dist
+coverage
+logs
+secrets
+.env
+.env.*
+*.log
+test
+scripts
+samples
+readme_*.md

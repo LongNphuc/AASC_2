@@ -1,0 +1,24 @@
+# Bí mật: chỉ commit .env.example
+.env
+.env.*
+!.env.example
+secrets/
+
+# Log
+logs/
+*.log
+
+# Build và thư viện
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Công cụ
+.vscode/
+.idea/
+.DS_Store
+
+# Admin panel: thư viện và bản build (build lại bằng npm run admin:build)
+admin-ui/node_modules/
+public/admin/
