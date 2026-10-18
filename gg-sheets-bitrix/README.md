@@ -1,6 +1,6 @@
 # Đồng bộ Google Sheets → Bitrix24 Lead (File_1)
 
-> **Trạng thái:** đã viết xong code, admin panel và đồng bộ hai chiều qua webhook Bitrix24. 255 unit test + 10 e2e test đều qua, độ bao phủ dòng 95%. Đã chạy thật Sheet mẫu 30 hàng lên portal demo (TC1, TC3). Còn lại: demo TC2, quay video.
+> **Trạng thái:** đã viết xong code, admin panel và đồng bộ hai chiều qua webhook Bitrix24. 256 unit test + 10 e2e test đều qua, độ bao phủ dòng 95%. Đã chạy thật Sheet mẫu 30 hàng lên portal demo (TC1, TC3) và test hiệu năng 150 hàng (20 giây, không lỗi rate limit). Còn lại: demo TC2, quay video.
 
 Ứng dụng NestJS đọc danh sách khách hàng tiềm năng từ một Google Sheet, tạo hoặc cập nhật **Lead** trên Bitrix24 CRM, rồi ghi Lead ID và trạng thái đồng bộ ngược lại vào Sheet. Chạy theo lịch (mặc định 15 phút) hoặc bấm chạy ngay qua HTTP. Bật hai chiều (`SYNC_DIRECTION=both`) thì khi sales đổi trạng thái hoặc người phụ trách trên CRM, Bitrix24 gọi webhook và ứng dụng ghi giá trị mới về Sheet ngay.
 
@@ -25,7 +25,7 @@ Google Sheet ──đọc──► ứng dụng ──ADD / UPDATE──► Bitr
 | Tệp | Nội dung |
 |---|---|
 | [readme_run.md](readme_run.md) | Cài đặt và chạy: tạo service account / OAuth Google, webhook Bitrix24, `.env`, mapping, Docker, giám sát và bảo trì, xử lý sự cố |
-| [readme_api.md](readme_api.md) | Endpoint và cách gọi, các lỗi đã xử lý, kịch bản TC1–TC4, kết quả test |
+| [readme_api.md](readme_api.md) | Endpoint và cách gọi, các lỗi đã xử lý, kịch bản TC1–TC4, test hiệu năng, kết quả test |
 | [readme_design.md](readme_design.md) | Thiết kế: luồng một lần chạy, sync hash, chống trùng, ghi ngược Sheet, khóa, rate limit, mapping, DB và mã kbn, log, đồng bộ hai chiều |
 | [readme_structure.md](readme_structure.md) | Ý nghĩa từng thư mục, tệp và method |
 | [readme_other_require_not_apply.md](readme_other_require_not_apply.md) | Yêu cầu có chữ "hoặc" mà bài không làm (CLI, Bitrix24 OAuth), lý do và cách thêm |
@@ -76,12 +76,13 @@ Swagger: `http://localhost:3000/docs`. Admin panel: `http://localhost:3000/admin
 
 | Yêu cầu | Ở đâu |
 |---|---|
-| Unit test, độ bao phủ ≥ 70% | 255 unit test, độ bao phủ dòng 95%; `coverageThreshold` trong `package.json`; [readme_api.md mục 8.2](readme_api.md#82-unit-test-và-độ-bao-phủ) |
+| Unit test, độ bao phủ ≥ 70% | 256 unit test, độ bao phủ dòng 95%; `coverageThreshold` trong `package.json`; [readme_api.md mục 8.3](readme_api.md#83-unit-test-và-độ-bao-phủ) |
 | `mapping.json`, `.env.example` | Thư mục gốc |
 | Sheet mẫu / CSV để import | `samples/leads-template.csv` |
 | Docker | `Dockerfile`, `docker-compose.yml` |
 | README: credential Google, webhook Bitrix24, mapping, chạy, xử lý sự cố, giám sát và bảo trì | [readme_run.md](readme_run.md) |
 | TC1 tạo lead, TC2 cập nhật, TC3 trùng, TC4 lỗi API | Test tự động trong `sync/services/sync-runner.service.spec.ts`; các bước demo: [readme_api.md mục 8.1](readme_api.md#81-kịch-bản-tc1tc4) |
+| Test hiệu năng 100+ bản ghi | 150 hàng trên portal thật: 20 giây, 15 request tới Bitrix24, không lỗi rate limit; chạy lại không gửi lệnh nào: [readme_api.md mục 8.2](readme_api.md#82-test-hiệu-năng) |
 | Video demo dưới 5 phút | (cập nhật sau) |
 
 ## Điểm cộng

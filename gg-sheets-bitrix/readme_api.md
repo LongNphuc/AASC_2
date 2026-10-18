@@ -351,18 +351,50 @@ Kiểm tra thêm:
 | Hai chiều: sales đổi giai đoạn trên CRM | `SYNC_DIRECTION=both`, webhook đi trỏ tới ứng dụng ([readme_run.md bước 1.7](readme_run.md#17-đồng-bộ-hai-chiều-webhook-đi-bitrix24--bitrix24_outbound_token-tùy-chọn)); đổi giai đoạn một lead do Sheet tạo | Vài giây sau ô "Trạng thái" của mọi hàng có Lead ID đó đổi theo, kèm "Thời gian đồng bộ cuối"; chạy batch Sheet → Bitrix24 sau đó thì các hàng này `skipped` |
 | Hai chiều: marketing sửa "Trạng thái" trên Sheet của hàng đã có lead | Sửa ô rồi chạy batch Sheet → Bitrix24 | Không gửi lên (Bitrix24 làm chủ cột này); có test trong `sync-runner.service.spec.ts` |
 
-### 8.2 Unit test và độ bao phủ
+### 8.2 Test hiệu năng
+
+Chạy với portal thật trên một tab riêng có 150 hàng hợp lệ, email và SĐT khác nhau, nên hàng nào cũng phải tra trùng và tạo lead.
+
+1. Tạo tab `perf-150`. Dòng 1 chép tiêu đề từ tab chính (đủ các cột trong mapping). Không cần cột kết quả: lần chạy đầu tự thêm và ẩn.
+2. Điền hàng 2 theo bảng dưới, rồi kéo cả hàng xuống tới hàng 151. Công thức viết cho Sheet đặt vùng Việt Nam (`;` ngăn các đối số); Sheet vùng Mỹ thì đổi `;` thành `,`. Viết sai dấu thì ô hiện `#ERROR!`.
+3. `.env`: `GOOGLE_SHEET_NAME=perf-150`, khởi động lại, `curl -s -X POST "$BASE/sync/run"`; chạy xong thì chạy thêm lần nữa.
+
+| Cột | Hàng 2 |
+|---|---|
+| Tên khách hàng | `="Khách "&CHAR(65+MOD(ROW();26))&CHAR(65+INT(ROW()/26))` (chỉ chữ cái, vì luật `is_not_contain_digit`) |
+| Email | `="perf"&ROW()&"@example.com"` |
+| Số điện thoại | `="0912"&TEXT(ROW();"000000")` |
+| Ngân sách dự kiến | `=ROW()*1000000` |
+| Công ty, Nguồn lead, Trạng thái, Ghi chú, Lĩnh vực quan tâm | `Perf Co`, `website`, `Chưa giao người xử lý`, `Test hiệu năng`, `Bán lẻ` |
+| Người phụ trách | Để trống |
+
+**Kết quả đo** ngày 18/10/2026 trên portal dùng thử, `BITRIX24_MAX_RPS=2`, Sheet vùng `vi_VN`:
+
+| Chỉ số | Lần 1: 150 hàng mới | Lần 2: không ai sửa gì |
+|---|---|---|
+| Kết quả | `SUCCESS`, created 150, invalid 0, pending 0 | `SUCCESS`, skipped 150, không lệnh tạo/cập nhật nào |
+| Thời gian | 20,2 giây | 3,7 giây |
+| Lệnh gọi Google | 6: kiểm tra tab, đọc toàn bộ tab, 2 lệnh thêm và ẩn cột kết quả (chỉ lần đầu), đọc lại, ghi kết quả 750 ô trong một lệnh | 2: kiểm tra tab, đọc toàn bộ tab |
+| Request tới Bitrix24 | 15: 13 batch (1 đọc trạng thái, 9 tra trùng gồm 450 lệnh `crm.lead.list` theo email và SĐT, 3 tạo lead mỗi batch 50 lệnh), `crm.lead.fields`, `user.get` | 3: 1 batch đọc trạng thái, `crm.lead.fields`, `user.get` |
+| Thử lại, lỗi `429` / `503` | 0 | 0 |
+| Lead trên portal | Đúng 150, không trùng | Không đổi |
+
+Thời gian lần 1: đọc Sheet 2,2 giây, tra trùng khoảng 6 giây (giữ nhịp 2 request/giây), 3 batch tạo lead mỗi batch khoảng 3,4 giây (Bitrix24 xử lý 50 lệnh), ghi kết quả 1,7 giây. Ước tính 1.000 hàng mới mất khoảng 2–3 phút, dưới giới hạn một lần chạy `SYNC_MAX_RUN_SECONDS` (10 phút).
+
+Xong thì xóa các lead thử trên portal và đặt lại `GOOGLE_SHEET_NAME`.
+
+### 8.3 Unit test và độ bao phủ
 
 Danh sách tệp test: [readme_structure.md](readme_structure.md) (các dòng `*.spec.ts`). Kết quả lần chạy gần nhất (có `TEST_DATABASE_URL`):
 
 ```
 npm run test:cov
 Test Suites: 47 passed, 47 total
-Tests:       255 passed, 255 total
-Statements   : 95.18% ( 2312/2429 )
-Branches     : 81.84% ( 1294/1581 )
+Tests:       256 passed, 256 total
+Statements   : 95.2% ( 2325/2442 )
+Branches     : 81.96% ( 1304/1591 )
 Functions    : 90.81% ( 435/479 )
-Lines        : 95.52% ( 2090/2188 )
+Lines        : 95.54% ( 2102/2200 )
 
 npm run test:e2e
 Tests:       10 passed, 10 total

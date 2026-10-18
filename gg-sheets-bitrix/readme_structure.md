@@ -339,7 +339,7 @@ health/
 
 ```
 test/
-├── app.e2e-spec.ts                       E2E với PostgreSQL thật (cần TEST_DATABASE_URL), 9 test: /health không cần key;
+├── app.e2e-spec.ts                       E2E với PostgreSQL thật (cần TEST_DATABASE_URL), 10 test: /health không cần key;
 │                                         thiếu key 401; hai batch, lần chạy đầu sau một chu kỳ; batch token chạy ngay khi khởi động
 │                                         (tệp khóa không có → FAILED 50012); mapping.json nạp thành phiên bản 1;
 │                                         PUT /mapping sai → 400; /sync/run 202 rồi trả khóa; 409 khi đang chạy, 429 khi cooldown;
