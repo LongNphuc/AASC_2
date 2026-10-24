@@ -4,7 +4,7 @@ Bài làm cho hai đề kiểm tra tích hợp với Bitrix24 CRM. Mỗi đề l
 
 | Thư mục | Đề | Nội dung | Trạng thái | Hướng dẫn |
 |---|---|---|---|---|
-| [`gg-sheets-bitrix/`](gg-sheets-bitrix/) | File_1 | Đồng bộ Google Sheets → Bitrix24 Lead: đọc Sheet theo lịch hoặc chạy tay, chống trùng theo email/SĐT, ghi Lead ID và trạng thái ngược lại Sheet, mapping cấu hình được, admin panel | Đã xong code và test; còn demo trên portal thật, video | [gg-sheets-bitrix/README.md](gg-sheets-bitrix/README.md) |
+| [`gg-sheets-bitrix/`](gg-sheets-bitrix/) | File_1 | Đồng bộ Google Sheets → Bitrix24 Lead: đọc Sheet theo lịch hoặc chạy tay, chống trùng theo email/SĐT, ghi Lead ID và trạng thái ngược lại Sheet, mapping cấu hình được, admin panel | Đã xong code và test; đã demo trên portal thật, video | [gg-sheets-bitrix/README.md](gg-sheets-bitrix/README.md) |
 | [`tiktok-bitrix/`](tiktok-bitrix/) | File_3 | TikTok Lead Generation → Bitrix24: webhook, PostgreSQL, Redis, BullMQ, chuyển lead thành deal theo luật, thống kê | Đã xong code và test, chạy đủ luồng với Bitrix24, TikTok giả; chưa thử trên portal thật | [tiktok-bitrix/README.md](tiktok-bitrix/README.md) |
 
 ## Chạy nhanh File_1
