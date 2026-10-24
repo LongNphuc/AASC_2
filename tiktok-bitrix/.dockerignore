@@ -1,0 +1,11 @@
+node_modules
+dist
+coverage
+logs
+.env
+.env.*
+*.log
+test
+.husky
+readme_*.md
+docs

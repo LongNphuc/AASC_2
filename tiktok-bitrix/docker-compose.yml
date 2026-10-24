@@ -1,0 +1,139 @@
+# api, worker, mock dùng chung một image (Dockerfile), khác lệnh chạy.
+# Profile test: db-test, redis-test cho integration và E2E test (readme_run.md bước 7).
+x-app: &app
+  build: .
+  image: tiktok-bitrix
+  env_file: .env
+  volumes:
+    - ./logs:/app/logs
+
+services:
+  db:
+    # PostgreSQL 18: dữ liệu lưu dưới /var/lib/postgresql/<phiên bản>.
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: tiktok_bitrix
+    ports:
+      - '${DB_PORT:-5432}:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U app -d tiktok_bitrix']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  redis:
+    # AOF để giảm khả năng mất job khi khởi động lại; noeviction vì BullMQ
+    # không cho xóa khóa của queue khi đầy bộ nhớ (readme_design.md mục 10.4).
+    image: redis:8-alpine
+    command: ['redis-server', '--appendonly', 'yes', '--maxmemory-policy', 'noeviction']
+    ports:
+      - '${REDIS_PORT:-6379}:6379'
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  mock:
+    <<: *app
+    command: ['node', 'dist/mock-server.js']
+    environment:
+      MOCK_PORT: 4000
+      MOCK_APP_WEBHOOK_URL: http://api:3000/webhooks/bitrix24/deals
+      LOG_DIR: /app/logs
+    ports:
+      - '${MOCK_PORT:-4000}:4000'
+    healthcheck:
+      test: ['CMD', 'node', '-e', "fetch('http://127.0.0.1:4000/_mock/health').then((r) => process.exit(r.ok ? 0 : 1), () => process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  api:
+    <<: *app
+    command: ['node', 'dist/main.js']
+    environment:
+      PORT: 3000
+      DATABASE_URL: postgres://app:app@db:5432/tiktok_bitrix
+      REDIS_URL: redis://redis:6379
+      LOG_DIR: /app/logs
+    ports:
+      - '${PORT:-3000}:3000'
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      mock:
+        condition: service_healthy
+        required: false
+    healthcheck:
+      test: ['CMD', 'node', '-e', "fetch('http://127.0.0.1:3000/health').then((r) => process.exit(r.ok ? 0 : 1), () => process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      start_period: 20s
+      retries: 5
+    restart: unless-stopped
+
+  worker:
+    <<: *app
+    command: ['node', 'dist/worker.js']
+    environment:
+      DATABASE_URL: postgres://app:app@db:5432/tiktok_bitrix
+      REDIS_URL: redis://redis:6379
+      LOG_DIR: /app/logs
+    depends_on:
+      # Chờ api healthy: migration đã chạy xong.
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ['CMD', 'node', 'dist/scripts/worker-healthcheck.js']
+      interval: 15s
+      timeout: 5s
+      start_period: 20s
+      retries: 3
+    # Luôn một process worker (readme_design.md mục 10.1); chết thì tự khởi động lại.
+    restart: unless-stopped
+    stop_grace_period: 40s
+
+  db-test:
+    profiles: ['test']
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: tiktok_bitrix_test
+    ports:
+      - '5433:5432'
+    tmpfs:
+      - /var/lib/postgresql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U app -d tiktok_bitrix_test']
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  redis-test:
+    profiles: ['test']
+    image: redis:8-alpine
+    command: ['redis-server', '--maxmemory-policy', 'noeviction']
+    ports:
+      - '6380:6379'
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  pgdata:
+  redisdata:

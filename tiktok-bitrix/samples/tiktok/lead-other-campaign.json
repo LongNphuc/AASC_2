@@ -1,0 +1,27 @@
+{
+  "event": "lead.generate",
+  "event_id": "evt_2234567890",
+  "timestamp": 1709963000,
+  "advertiser_id": "7123456789",
+  "campaign": {
+    "campaign_id": "2234567890123456789",
+    "campaign_name": "Summer Sale 2026",
+    "ad_id": "8876543210987654321",
+    "ad_name": "Flash Deal 15s"
+  },
+  "form": { "form_id": "form_def456", "form_name": "Quote Request" },
+  "lead_data": {
+    "full_name": "Nguyễn Văn A",
+    "email": "NguyenVanA@Email.com",
+    "phone": "0901 234 567",
+    "city": "Hà Nội",
+    "interests": ["mobile apps"],
+    "utm_source": "tiktok",
+    "utm_campaign": "summer_sale_2026",
+    "ttclid": "TT-def456uvw321"
+  },
+  "custom_questions": [
+    { "question": "Budget range", "answer": "Trên 20 triệu" },
+    { "question": "Timeline", "answer": "2-3 tháng" }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "lead_data.full_name": "NAME",
+  "lead_data.email": "EMAIL[0][VALUE]",
+  "lead_data.phone": "PHONE[0][VALUE]",
+  "lead_data.city": "UF_CRM_CITY",
+  "campaign.campaign_name": "UF_CRM_UTM_CAMPAIGN",
+  "campaign.ad_name": "UF_CRM_AD_NAME",
+  "lead_data.ttclid": "UF_CRM_TTCLID",
+  "lead_data.utm_source": "UTM_SOURCE",
+  "lead_data.utm_campaign": "UTM_CAMPAIGN"
+}

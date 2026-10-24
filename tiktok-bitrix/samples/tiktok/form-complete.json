@@ -1,0 +1,24 @@
+{
+  "event": "form.complete",
+  "event_id": "evt_1234567891",
+  "timestamp": 1709877143,
+  "advertiser_id": "7123456789",
+  "campaign": {
+    "campaign_id": "1234567890123456789",
+    "campaign_name": "Spring Sale 2024",
+    "ad_id": "9876543210987654321",
+    "ad_name": "Product Demo Video"
+  },
+  "form": { "form_id": "form_abc123", "form_name": "Contact Form" },
+  "lead_data": {
+    "full_name": "Nguyễn Văn A",
+    "email": "nguyenvana@email.com",
+    "phone": "+84901234567",
+    "city": "Hà Nội",
+    "ttclid": "TT-abc123xyz789"
+  },
+  "custom_questions": [
+    { "question": "Budget range", "answer": "10-15 triệu VND" },
+    { "question": "Số nhân viên", "answer": "20-50" }
+  ]
+}

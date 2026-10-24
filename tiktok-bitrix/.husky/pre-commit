@@ -1,0 +1,2 @@
+# Repo git nằm ở thư mục cha (AASC_2): chạy lint-staged trong thư mục dự án.
+cd tiktok-bitrix && npx lint-staged

@@ -1,0 +1,18 @@
+{
+  "deal_rules": [
+    {
+      "condition": "campaign.campaign_name CONTAINS 'sale'",
+      "action": "create_deal",
+      "pipeline_id": "1",
+      "stage_id": "NEW",
+      "probability": 30
+    }
+  ],
+  "stage_probability": {
+    "1": { "NEW": 30, "PREPARATION": 50, "PREPAYMENT_INVOICE": 70, "EXECUTING": 80, "WON": 100, "LOSE": 0 }
+  },
+  "assignment_rules": [
+    { "condition": "lead_data.city = 'Hà Nội'", "user_ids": [7, 9] },
+    { "condition": "*", "user_ids": [12] }
+  ]
+}

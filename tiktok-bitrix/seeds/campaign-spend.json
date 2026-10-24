@@ -1,0 +1,5 @@
+[
+  { "campaign_id": "1234567890123456789", "campaign_name": "Spring Sale 2024", "daily_spend": 350000, "daily_impressions": 8500, "daily_clicks": 140 },
+  { "campaign_id": "2234567890123456789", "campaign_name": "Summer Sale 2026", "daily_spend": 500000, "daily_impressions": 12000, "daily_clicks": 210 },
+  { "campaign_id": "3234567890123456789", "campaign_name": "Brand Awareness Q4", "daily_spend": 250000, "daily_impressions": 20000, "daily_clicks": 90 }
+]
