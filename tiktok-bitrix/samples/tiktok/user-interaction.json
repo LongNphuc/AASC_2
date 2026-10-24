@@ -1,0 +1,14 @@
+{
+  "event": "user.interaction",
+  "event_id": "evt_1234567001",
+  "timestamp": 1709876400,
+  "advertiser_id": "7123456789",
+  "campaign": {
+    "campaign_id": "1234567890123456789",
+    "campaign_name": "Spring Sale 2024",
+    "ad_id": "9876543210987654321",
+    "ad_name": "Product Demo Video"
+  },
+  "form": { "form_id": "form_abc123", "form_name": "Contact Form" },
+  "interaction": { "type": "form_open", "ttclid": "TT-abc123xyz789" }
+}

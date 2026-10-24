@@ -1,0 +1,596 @@
+[
+  {
+    "event": "lead.generate",
+    "timestamp": 1735689600,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "1234567890123456789",
+      "campaign_name": "Spring Sale 2024",
+      "ad_id": "6100000",
+      "ad_name": "Video 1"
+    },
+    "form": {
+      "form_id": "form_abc123",
+      "form_name": "Contact Form"
+    },
+    "lead_data": {
+      "full_name": "Trần Văn Bảo",
+      "email": "tran.van.bao.2025@example.com",
+      "phone": "+84912000000",
+      "city": "Hà Nội"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "2-5 triệu VND"
+      },
+      {
+        "question": "Timeline",
+        "answer": "Trong 1 tháng"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "timestamp": 1736467200,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "4234567890123456789",
+      "campaign_name": "Tết Sale 2025",
+      "ad_id": "6100001",
+      "ad_name": "Video 2"
+    },
+    "form": {
+      "form_id": "form_abc123",
+      "form_name": "Contact Form"
+    },
+    "lead_data": {
+      "full_name": "Lê Thị Cúc",
+      "email": "le.thi.cuc.2025@example.com",
+      "phone": "+84912007919",
+      "city": "Hồ Chí Minh"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "5-10 triệu VND"
+      },
+      {
+        "question": "Timeline",
+        "answer": "2-3 tháng"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "timestamp": 1737244800,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "1234567890123456789",
+      "campaign_name": "Spring Sale 2024",
+      "ad_id": "6100002",
+      "ad_name": "Video 3"
+    },
+    "form": {
+      "form_id": "form_abc123",
+      "form_name": "Contact Form"
+    },
+    "lead_data": {
+      "full_name": "Phạm Văn Đức",
+      "email": "pham.van.duc.2025@example.com",
+      "phone": "+84912015838",
+      "city": "Đà Nẵng"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "Trên 20 triệu"
+      },
+      {
+        "question": "Timeline",
+        "answer": "6 months"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "channel": "facebook",
+    "timestamp": 1738022400,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "5234567890123456789",
+      "campaign_name": "Facebook Lead Ads 2025",
+      "ad_id": "6100003",
+      "ad_name": "FB Carousel"
+    },
+    "form": {
+      "form_id": "fb_form_01",
+      "form_name": "Facebook Form"
+    },
+    "lead_data": {
+      "full_name": "Hoàng Thị Giang",
+      "email": "hoang.thi.giang.2025@example.com",
+      "phone": "+84912023757",
+      "city": "Hà Nội"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "2-5 triệu VND"
+      },
+      {
+        "question": "Timeline",
+        "answer": "Trong 1 tháng"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "timestamp": 1738800000,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "1234567890123456789",
+      "campaign_name": "Spring Sale 2024",
+      "ad_id": "6100004",
+      "ad_name": "Video 2"
+    },
+    "form": {
+      "form_id": "form_abc123",
+      "form_name": "Contact Form"
+    },
+    "lead_data": {
+      "full_name": "Vũ Văn Hải",
+      "email": "vu.van.hai.2025@example.com",
+      "phone": "+84912031676",
+      "city": "Hồ Chí Minh"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "5-10 triệu VND"
+      },
+      {
+        "question": "Timeline",
+        "answer": "2-3 tháng"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "timestamp": 1739577600,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "4234567890123456789",
+      "campaign_name": "Tết Sale 2025",
+      "ad_id": "6100005",
+      "ad_name": "Video 3"
+    },
+    "form": {
+      "form_id": "form_abc123",
+      "form_name": "Contact Form"
+    },
+    "lead_data": {
+      "full_name": "Đặng Thị Hồng",
+      "email": "dang.thi.hong.2025@example.com",
+      "phone": "+84912039595",
+      "city": "Đà Nẵng"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "Trên 20 triệu"
+      },
+      {
+        "question": "Timeline",
+        "answer": "6 months"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "timestamp": 1740355200,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "1234567890123456789",
+      "campaign_name": "Spring Sale 2024",
+      "ad_id": "6100006",
+      "ad_name": "Video 1"
+    },
+    "form": {
+      "form_id": "form_abc123",
+      "form_name": "Contact Form"
+    },
+    "lead_data": {
+      "full_name": "Bùi Văn Khoa",
+      "email": "bui.van.khoa.2025@example.com",
+      "phone": "+84912047514",
+      "city": "Hà Nội"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "2-5 triệu VND"
+      },
+      {
+        "question": "Timeline",
+        "answer": "Trong 1 tháng"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "channel": "facebook",
+    "timestamp": 1741132800,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "5234567890123456789",
+      "campaign_name": "Facebook Lead Ads 2025",
+      "ad_id": "6100007",
+      "ad_name": "FB Carousel"
+    },
+    "form": {
+      "form_id": "fb_form_01",
+      "form_name": "Facebook Form"
+    },
+    "lead_data": {
+      "full_name": "Đỗ Thị Liên",
+      "email": "do.thi.lien.2025@example.com",
+      "phone": "+84912055433",
+      "city": "Hồ Chí Minh"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "5-10 triệu VND"
+      },
+      {
+        "question": "Timeline",
+        "answer": "2-3 tháng"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "timestamp": 1741910400,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "1234567890123456789",
+      "campaign_name": "Spring Sale 2024",
+      "ad_id": "6100008",
+      "ad_name": "Video 3"
+    },
+    "form": {
+      "form_id": "form_abc123",
+      "form_name": "Contact Form"
+    },
+    "lead_data": {
+      "full_name": "Ngô Văn Mạnh",
+      "email": "ngo.van.manh.2025@example.com",
+      "phone": "+84912063352",
+      "city": "Đà Nẵng"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "Trên 20 triệu"
+      },
+      {
+        "question": "Timeline",
+        "answer": "6 months"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "timestamp": 1742688000,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "4234567890123456789",
+      "campaign_name": "Tết Sale 2025",
+      "ad_id": "6100009",
+      "ad_name": "Video 1"
+    },
+    "form": {
+      "form_id": "form_abc123",
+      "form_name": "Contact Form"
+    },
+    "lead_data": {
+      "full_name": "Dương Thị Ngọc",
+      "email": "duong.thi.ngoc.2025@example.com",
+      "phone": "+84912071271",
+      "city": "Hà Nội"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "2-5 triệu VND"
+      },
+      {
+        "question": "Timeline",
+        "answer": "Trong 1 tháng"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "timestamp": 1743465600,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "1234567890123456789",
+      "campaign_name": "Spring Sale 2024",
+      "ad_id": "6100010",
+      "ad_name": "Video 2"
+    },
+    "form": {
+      "form_id": "form_abc123",
+      "form_name": "Contact Form"
+    },
+    "lead_data": {
+      "full_name": "Lý Văn Phát",
+      "email": "ly.van.phat.2025@example.com",
+      "phone": "+84912079190",
+      "city": "Hồ Chí Minh"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "5-10 triệu VND"
+      },
+      {
+        "question": "Timeline",
+        "answer": "2-3 tháng"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "channel": "facebook",
+    "timestamp": 1744243200,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "5234567890123456789",
+      "campaign_name": "Facebook Lead Ads 2025",
+      "ad_id": "6100011",
+      "ad_name": "FB Carousel"
+    },
+    "form": {
+      "form_id": "fb_form_01",
+      "form_name": "Facebook Form"
+    },
+    "lead_data": {
+      "full_name": "Mai Thị Quỳnh",
+      "email": "mai.thi.quynh.2025@example.com",
+      "phone": "+84912087109",
+      "city": "Đà Nẵng"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "Trên 20 triệu"
+      },
+      {
+        "question": "Timeline",
+        "answer": "6 months"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "timestamp": 1745020800,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "1234567890123456789",
+      "campaign_name": "Spring Sale 2024",
+      "ad_id": "6100012",
+      "ad_name": "Video 1"
+    },
+    "form": {
+      "form_id": "form_abc123",
+      "form_name": "Contact Form"
+    },
+    "lead_data": {
+      "full_name": "Cao Văn Sơn",
+      "email": "cao.van.son.2025@example.com",
+      "phone": "+84912095028",
+      "city": "Hà Nội"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "2-5 triệu VND"
+      },
+      {
+        "question": "Timeline",
+        "answer": "Trong 1 tháng"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "timestamp": 1745798400,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "4234567890123456789",
+      "campaign_name": "Tết Sale 2025",
+      "ad_id": "6100013",
+      "ad_name": "Video 2"
+    },
+    "form": {
+      "form_id": "form_abc123",
+      "form_name": "Contact Form"
+    },
+    "lead_data": {
+      "full_name": "Trịnh Thị Tâm",
+      "email": "trinh.thi.tam.2025@example.com",
+      "phone": "+84912102947",
+      "city": "Hồ Chí Minh"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "5-10 triệu VND"
+      },
+      {
+        "question": "Timeline",
+        "answer": "2-3 tháng"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "timestamp": 1746576000,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "1234567890123456789",
+      "campaign_name": "Spring Sale 2024",
+      "ad_id": "6100014",
+      "ad_name": "Video 3"
+    },
+    "form": {
+      "form_id": "form_abc123",
+      "form_name": "Contact Form"
+    },
+    "lead_data": {
+      "full_name": "Phan Văn Uy",
+      "email": "phan.van.uy.2025@example.com",
+      "phone": "+84912110866",
+      "city": "Đà Nẵng"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "Trên 20 triệu"
+      },
+      {
+        "question": "Timeline",
+        "answer": "6 months"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "channel": "facebook",
+    "timestamp": 1747353600,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "5234567890123456789",
+      "campaign_name": "Facebook Lead Ads 2025",
+      "ad_id": "6100015",
+      "ad_name": "FB Carousel"
+    },
+    "form": {
+      "form_id": "fb_form_01",
+      "form_name": "Facebook Form"
+    },
+    "lead_data": {
+      "full_name": "Hồ Thị Vân",
+      "email": "ho.thi.van.2025@example.com",
+      "phone": "+84912118785",
+      "city": "Hà Nội"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "2-5 triệu VND"
+      },
+      {
+        "question": "Timeline",
+        "answer": "Trong 1 tháng"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "timestamp": 1748131200,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "1234567890123456789",
+      "campaign_name": "Spring Sale 2024",
+      "ad_id": "6100016",
+      "ad_name": "Video 2"
+    },
+    "form": {
+      "form_id": "form_abc123",
+      "form_name": "Contact Form"
+    },
+    "lead_data": {
+      "full_name": "Tạ Văn Xuân",
+      "email": "ta.van.xuan.2025@example.com",
+      "phone": "+84912126704",
+      "city": "Hồ Chí Minh"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "5-10 triệu VND"
+      },
+      {
+        "question": "Timeline",
+        "answer": "2-3 tháng"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "timestamp": 1748908800,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "4234567890123456789",
+      "campaign_name": "Tết Sale 2025",
+      "ad_id": "6100017",
+      "ad_name": "Video 3"
+    },
+    "form": {
+      "form_id": "form_abc123",
+      "form_name": "Contact Form"
+    },
+    "lead_data": {
+      "full_name": "Lâm Thị Yến",
+      "email": "lam.thi.yen.2025@example.com",
+      "phone": "+84912134623",
+      "city": "Đà Nẵng"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "Trên 20 triệu"
+      },
+      {
+        "question": "Timeline",
+        "answer": "6 months"
+      }
+    ]
+  },
+  {
+    "event": "lead.generate",
+    "channel": "facebook",
+    "timestamp": 1749686400,
+    "advertiser_id": "7123456789",
+    "campaign": {
+      "campaign_id": "5234567890123456789",
+      "campaign_name": "Facebook Lead Ads 2025",
+      "ad_id": "6100018",
+      "ad_name": "FB Carousel"
+    },
+    "form": {
+      "form_id": "fb_form_01",
+      "form_name": "Facebook Form"
+    },
+    "lead_data": {
+      "full_name": "Nguyễn Văn A",
+      "email": "nguyenvana@email.com",
+      "phone": "0901234567",
+      "city": "Hà Nội"
+    },
+    "custom_questions": [
+      {
+        "question": "Budget range",
+        "answer": "2-5 triệu VND"
+      },
+      {
+        "question": "Timeline",
+        "answer": "Trong 1 tháng"
+      }
+    ]
+  }
+]

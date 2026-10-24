@@ -1,0 +1,30 @@
+{
+  "event": "lead.generate",
+  "event_id": "evt_1234567890",
+  "timestamp": 1709876543,
+  "advertiser_id": "7123456789",
+  "campaign": {
+    "campaign_id": "1234567890123456789",
+    "campaign_name": "Spring Sale 2024",
+    "ad_id": "9876543210987654321",
+    "ad_name": "Product Demo Video"
+  },
+  "form": {
+    "form_id": "form_abc123",
+    "form_name": "Contact Form"
+  },
+  "lead_data": {
+    "full_name": "Nguyễn Văn A",
+    "email": "nguyenvana@email.com",
+    "phone": "+84901234567",
+    "city": "Hà Nội",
+    "interests": ["technology", "mobile apps"],
+    "utm_source": "tiktok",
+    "utm_campaign": "spring_sale_2024",
+    "ttclid": "TT-abc123xyz789"
+  },
+  "custom_questions": [
+    { "question": "Budget range", "answer": "5-10 triệu VND" },
+    { "question": "Timeline", "answer": "Trong 1 tháng" }
+  ]
+}

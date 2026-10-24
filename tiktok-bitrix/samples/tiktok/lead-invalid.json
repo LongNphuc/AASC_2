@@ -1,0 +1,9 @@
+{
+  "event": "lead.generate",
+  "event_id": "evt_invalid_0001",
+  "timestamp": 1709876543,
+  "campaign": { "campaign_id": "1234567890123456789", "campaign_name": "Spring Sale 2024" },
+  "form": { "form_id": "form_abc123", "form_name": "Contact Form" },
+  "lead_data": { "full_name": "<script>alert(1)</script>Khách Không Liên Lạc", "email": "abc@", "phone": "123" },
+  "custom_questions": []
+}

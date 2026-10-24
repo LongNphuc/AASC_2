@@ -1,0 +1,21 @@
+# Bí mật: chỉ commit các tệp mẫu
+.env
+.env.*
+!.env.example
+!.env.test.example
+
+# Log
+logs/*
+!logs/.gitkeep
+*.log
+
+# Build và thư viện
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Công cụ
+.vscode/
+.idea/
+.DS_Store
